@@ -17,7 +17,7 @@ public class Convert_Controller {
 	static final String CMD = "CMD";
 
 	// GET MAPPINGS
-	@GetMapping(value = "/xmltojson", produces = "application/json")
+	@GetMapping(value = "/convert/xmltojson", produces = "application/json")
 	public String getXMLtoJSON(@RequestParam String requestParms) {
 		return Convert_Service.xmlToJson(requestParms);
 	}
