@@ -22,8 +22,20 @@ public class Convert_Controller {
 		return Convert_Service.xmlToJson(requestParms);
 	}
 
+	@GetMapping(value = "/convert/jsontoxml", produces = "application/xml")
+	public String getJSONtoXML(@RequestParam String requestParms) {
+		return Convert_Service.jsonToXml(requestParms);
+	}
+
+	// POST MAPPINGS
 	@PostMapping(value = "/convert/xmltojson", consumes = "application/xml", produces = "application/json")
 	public String postXMLtoJSON(@RequestParam LinkedHashMap<String, Object> requestParms,
+			@RequestBody String requestBody) {
+		return Convert_Service.xmlToJson(requestBody);
+	}
+
+	@PostMapping(value = "/convert/jsontoxml", consumes = "application/json", produces = "application/xml")
+	public String postJSONtoXML(@RequestParam LinkedHashMap<String, Object> requestParms,
 			@RequestBody String requestBody) {
 		return Convert_Service.xmlToJson(requestBody);
 	}
